@@ -18,7 +18,7 @@ const Customers = lazy(()=> import('./pages/Customers'))
         <Routes>
           <Route path='/admin/dashboard' element={<Dashboard/>} />
           <Route path='/admin/products' element={<Products/>} />
-          <Route path='/admin/transaction' element={<Transaction/>} />
+          <Route path='/admin/transactions' element={<Transaction/>} />
           <Route path='/admin/customers' element={<Customers/>} />
           
           {/* charts */}

@@ -20,7 +20,7 @@
 
 @mixin grid (
     $col:1fr,
-    $dir: row , 
+    $gap: 1rem , 
     $row:unset,
     
  
@@ -29,6 +29,7 @@
  display: grid;
  grid-template-columns: $col;
  grid-template-rows: $row;
+ gap: $gap;
  
 
 }
