@@ -3,8 +3,9 @@ import { AiFillFileText } from 'react-icons/ai'
 import { IoIosPeople } from 'react-icons/io'
 import { Link,Location, useLocation } from 'react-router-dom'
 import { IconType } from 'react-icons'
+import { FaChartBar,FaChartPie,FaChartLine } from 'react-icons/fa'
 
-const AdminSidear = () => {
+const AdminSidebar = () => {
 
    const location = useLocation()
   return (
@@ -13,107 +14,118 @@ const AdminSidear = () => {
          <div>
             <h5>Dashboard</h5>
             <ul>
-                  <li style={
-                     {
-                        backgroundColor: location.pathname.includes("/admin/dashboard")
-                        ? "rgba(0,115,255,0.1)" : "white"
-                     }
-                  }>
-                     <Link to={"/admin/dashboard"}
-                                          style={{
-                                             color:location.pathname.includes
-                                             ("/admin/dashboard")?"rgb(0,115,255)":"black"
-                     
-                                          }}
-                     >
-                     <RiDashboardFill/>
-                     Dashboard                  
-                     </Link>
-                  </li>
 
-                  <li style={
-                     {
-                        backgroundColor: location.pathname.includes("/admin/products")
-                        ? "rgba(0,115,255,0.1)" : "white"
-                     } } >
-                     <Link to={"/admin/products"}
-                                          style={{
-                                             color:location.pathname.includes
-                                             ("/admin/products")?"rgb(0,115,255)":"black"
-                     
-                                          }}
-                     >
-                      <RiShoppingBag3Fill/>
-                     Products                 
-                     </Link>
-                  </li>
+            <Li 
+            url='/admin/dashboard'
+            text='Dashboard'
+            location={location}
+            Icon={RiDashboardFill}/>
 
-                  <li style={
-                     {
-                        backgroundColor: location.pathname.includes("/admin/customers")
-                        ? "rgba(0,115,255,0.1)" : "white"
-                     } }>
-                     <Link to={"/admin/customers"} 
-                                          style={{
-                                             color:location.pathname.includes
-                                             ("/admin/customers")?"rgb(0,115,255)":"black"
-                     
-                                          }}
-                     >
-                      <IoIosPeople/>
-                     Customers                  
-                     </Link>
-                  </li>
+ <Li 
+            url='/admin/products'
+            text='Products'
+            location={location}
+            Icon={RiShoppingBag3Fill}/>
 
-                  <li style={
-                     {
-                        backgroundColor: location.pathname.includes("/admin/transactions")
-                        ? "rgba(0,115,255,0.1)" : "white"
-                     }} >
-                     <Link to={"/admin/transactions"}
+<Li 
+            url='/admin/customers'
+            text='Customers'
+            location={location}
+            Icon={IoIosPeople}/>
 
-                     style={{
-                        color:location.pathname.includes
-                        ("/admin/transactions")?"rgb(0,115,255)":"black"
-
-                     }}
-
-                     >
-                      <AiFillFileText/>
-                     Transactions                  
-                     </Link 
-                     >
-                  </li>
-
+<Li 
+            url='/admin/transactions'
+            text='Transactions'
+            location={location}
+            Icon={AiFillFileText}/>
  
+            </ul>
+         </div>
 
+         <div>
+            <h5>Charts</h5>
+            <ul>
+
+            <Li 
+            url='/admin/chart/bar'
+            text='Bar'
+            location={location}
+            Icon={FaChartBar}/>
+
+ <Li 
+            url='/admin/chart/pie'
+            text='Pie'
+            location={location}
+            Icon={FaChartPie}/>
+
+<Li 
+            url='/admin/chart/line'
+            text='Line'
+            location={location}
+            Icon={FaChartLine}/>
+            </ul>
+         </div>
+
+         <div>
+            <h5>Apps</h5>
+            <ul>
+
+            <Li 
+            url='/admin/apps/stopwatch'
+            text='Stopwatch'
+            location={location}
+            Icon={RiDashboardFill}/>
+
+ <Li 
+            url='/admin/coupon'
+            text='Coupon'
+            location={location}
+            Icon={RiShoppingBag3Fill}/>
+
+<Li 
+            url='/admin/toss'
+            text='Toss'
+            location={location}
+            Icon={IoIosPeople}/>
             </ul>
          </div>
      </aside>
   )
 }
 
+ 
+
+
 interface LiProps{
-   url:String;
-   text:String;
+   url:string;
+   text:string;
    location:Location,
    Icon: IconType
 }
 const Li = ({url,text,location,Icon}:LiProps) =>(
+
    <li style={
-      {
-         backgroundColor: location.pathname.includes("/admin/customers")
-         ? "rgba(0,115,255,0.1)" : "white"
-      }
- }
- >
+                     {
+                        backgroundColor: location.pathname.includes(url)
+                        ? "rgba(0,115,255,0.1)" : "white"
+                     }} >
+                     <Link
+                      to={url}
 
-   <Link>
-   
-   </Link>
+                     style={{
+                        color:location.pathname.includes
+                        (url)?"rgb(0,115,255)":"black"
 
-   </li>
+                     }}
+
+                     >
+                     <Icon/>
+                     
+                     {text}                
+                     </Link>
+                  </li>
+  
 )
 
  
-export default AdminSidear
+export default AdminSidebar

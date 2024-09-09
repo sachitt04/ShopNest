@@ -1,4 +1,4 @@
-@import "_mixin" ;
+@import "mixin" ;
 
 
 :root {
@@ -32,8 +32,6 @@
   .purple{
     color:rgb(0, 195, 0) ;
   }
-
-
 
   .adminContainer{
     @include grid(1fr 4fr ,2rem );
