@@ -5,7 +5,8 @@ import { FaRegBell } from 'react-icons/fa'
 import userImg from "../assets/userpic.png" 
 import { HiTrendingUp,HiTrendingDown } from 'react-icons/hi'
 import data from "../assets/data.json"
-import { BarChart } from '../components/Charts'
+import { BarChart, DoughnutChart } from '../components/Charts'
+import { BiMaleFemale } from 'react-icons/bi'
 
 const Dashboard = () => {
   return (
@@ -69,9 +70,6 @@ const Dashboard = () => {
       <section className='graph-container'>
         <div className="revenue-chart">
           <h2>Revenue & Transactions</h2>
-        </div>
-        <div className="dashboard-categories">
-          <h2>Inventory</h2>
           <BarChart
           data_1={[300,144,443,655,237,755,190]}
           data_2={[200,444,343,556,778,455,990]}
@@ -81,6 +79,9 @@ const Dashboard = () => {
           bgColor_2='rgba(53,162,235,0.8)'
 
           />
+        </div>
+        <div className="dashboard-categories">
+          <h2>Inventory</h2>
           <div>
             {data.categories.map((category)=>(
                           <CategoryItem 
@@ -94,6 +95,21 @@ const Dashboard = () => {
           </div>
         </div>
 
+      </section>
+
+      <section className='transactions-container'>
+        <div className='gender-chart'>
+          <h2>Gender Ratio</h2>
+          <DoughnutChart
+          labels={["Female","Male"]} 
+          data={[12,19]}
+          backgroundColor={["hsl(340,82%,56%)","rgba(53,162,235,0.8)"]}
+          cutout={90}
+
+
+          />
+          <p><BiMaleFemale/></p>
+        </div>
       </section>
     </main>
     </div>
