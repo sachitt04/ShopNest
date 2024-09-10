@@ -5,6 +5,7 @@ import { FaRegBell } from 'react-icons/fa'
 import userImg from "../assets/userpic.png" 
 import { HiTrendingUp,HiTrendingDown } from 'react-icons/hi'
 import data from "../assets/data.json"
+import { BarChart } from '../components/Charts'
 
 const Dashboard = () => {
   return (
@@ -71,6 +72,15 @@ const Dashboard = () => {
         </div>
         <div className="dashboard-categories">
           <h2>Inventory</h2>
+          <BarChart
+          data_1={[300,144,443,655,237,755,190]}
+          data_2={[200,444,343,556,778,455,990]}
+          title_1='Revenue'
+          title_2='Transactions'
+          bgColor_1='rgb(0,115,255)'
+          bgColor_2='rgba(53,162,235,0.8)'
+
+          />
           <div>
             {data.categories.map((category)=>(
                           <CategoryItem 
