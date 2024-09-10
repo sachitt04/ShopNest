@@ -1,4 +1,5 @@
 @import "mixin" ;
+@import "dashboard";
 
 
 :root {
@@ -33,6 +34,7 @@
     color:rgb(0, 195, 0) ;
   }
 
+
   .adminContainer{
     @include grid(1fr 4fr ,2rem );
     height: 100vh;
@@ -64,7 +66,7 @@
                   padding: 0.5rem 1rem;
                   border-radius: 10px;
 
-                }
+                
                 >a{
                   color: rgba(0,0,0,0.825);
                   @include flex(row,unset)
@@ -75,7 +77,7 @@
 
     }
   }
-
+  }
 
 
 
