@@ -4,6 +4,7 @@ import { BsSearch } from 'react-icons/bs'
 import { FaRegBell } from 'react-icons/fa'
 import userImg from "../assets/userpic.png" 
 import { HiTrendingUp,HiTrendingDown } from 'react-icons/hi'
+import data from "../assets/data.json"
 
 const Dashboard = () => {
   return (
@@ -63,6 +64,27 @@ const Dashboard = () => {
 
 
       </section>
+
+      <section className='graph-container'>
+        <div className="revenue-chart">
+          <h2>Revenue & Transactions</h2>
+        </div>
+        <div className="dashboard-categories">
+          <h2>Inventory</h2>
+          <div>
+            {data.categories.map((category)=>(
+                          <CategoryItem 
+                          heading={category.heading}
+                          value={category.value}
+                          color= {`hsl(${category.value * 5}, ${category.value}%, 50%)`}
+                          
+                          />
+            ))}
+
+          </div>
+        </div>
+
+      </section>
     </main>
     </div>
   )
@@ -109,6 +131,26 @@ const WidgetItem = ({heading,
       }}>{precent}%</span>
 
     </div>
-  </article>
+  </article>;
+
+  interface CategoryProps{
+    color:string,
+    value:number,
+    heading:string
+  }
+
+  const CategoryItem = ({color,value,heading}:CategoryProps) =>(
+    <div className='category-item'>
+      <h5> {heading} </h5>
+      <div>
+        <div style={{
+          backgroundColor: color,
+          width:`${value}%`
+        }}></div>
+      </div>
+      <span> {value}% </span>
+
+    </div>
+  )
 
 export default Dashboard
