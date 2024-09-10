@@ -113,12 +113,7 @@ interface DoughnutChartProps{
     cutout?:number |string,
     legends?:boolean,
     offset?:number[]
-
-     
-    
-
 }
-
 
 export const DoughnutChart = ({labels,
     data,
