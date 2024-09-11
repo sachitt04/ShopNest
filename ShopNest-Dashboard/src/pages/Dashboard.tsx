@@ -108,6 +108,7 @@ const Dashboard = () => {
           />
           <p><BiMaleFemale/></p>
         </div>
+
       </section>
     </main>
     </div>
